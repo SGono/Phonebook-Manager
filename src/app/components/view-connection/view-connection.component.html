@@ -1,0 +1,58 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <p class="h3 text-warning fw-bold">View Connection</p>
+      <p class="fst-italic">Welcome to our site, this application is about adding new connections to your phonebook.
+        This application will make your life easier by creating new connections
+        with just click of a button, you can also edit or update your connections as well as deleting.
+         Take your time and have funny by adding new connections to your phonebook. Please take your time,
+         to expore on this new and awesome application, then let us know what you think. We welcome all new ideas or suggestions from you with pleasure !
+      </p>
+  </div>
+    </div>
+      </div>
+
+      <!-- <pre>{{connection | json }}</pre> -->
+
+      <!-- Spinner Loading -->
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+
+<!-- Message for error -->
+<div *ngIf="!loading && errorMessage">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="h4 text-danger fw-bold">{{errorMessage}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- Connection Details -->
+      <div *ngIf="!loading && isNotEmpty()"   class="container">
+        <div class="row align-items-center">
+          <div class="col-sm-4">
+            <img [src]="connection.photo" alt="" class="connection-image-big" >
+          </div>
+           <div class="col-sm-6">
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-warning">Name: <span class="fw-bold">{{connection.name}}</span></li>
+              <li class="list-group-item list-group-item-warning">Email: <span class="fw-bold">{{connection.email}}</span></li>
+              <li class="list-group-item list-group-item-warning">Mobile: <span class="fw-bold">{{connection.mobile}}</span></li>
+              <li class="list-group-item list-group-item-warning">Company: <span class="fw-bold">{{connection.company}}</span></li>
+              <li class="list-group-item list-group-item-warning">Title: <span class="fw-bold">{{connection.title}}</span></li>
+              <li class="list-group-item list-group-item-warning">Group Name: <span class="fw-bold">{{group.name}}</span></li>
+            </ul>
+           </div>
+        </div>
+         <div class="row">
+          <div class="col">
+            <a class="btn btn-success" routerLink="/">
+              <i class="fa fa-arrow-alt-circle-left">Back</i>
+            </a>
+          </div>
+         </div>
+
+      </div>

@@ -1,0 +1,114 @@
+<!-- creating content and search field-->
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <p class="h3 text-warning fw-bold">Connections
+        <a class="btn btn-success btn-sm" routerLink="/connections/add">
+          <i class="fa fa-plus-circle"></i> Create New
+        </a>
+      </p>
+
+      <p class="fst-italic">Welcome to our site, this application is about adding new connections to your phonebook.
+        This application will make your life easier by creating new connections
+        with just click of a button, you can also edit or update your connections as well as deleting.
+         Take your time and have funny by adding new connections to your phonebook. Please take your time,
+         to expore on this new and awesome application, then let us know what you think. We welcome all new ideas or suggestions from you with pleasure !
+      </p>
+
+      <section>
+        <h5> Search Phonebook </h5>
+       <input name="searchInput" [(ngModel)]="searchInput" type="text"  placeholder="Search for names" size="50" >
+           <article>
+               <h6> Names </h6>
+               <ul>
+                 <li *ngFor="let name of
+                               names | search: searchInput">
+                    {{name}}
+                 </li>
+               </ul>
+           </article>
+       </section>
+
+
+
+      <!-- <form>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col">
+                    <input class="form-control" placeholder="Search Name" type="text">
+
+                </div>
+                  <div class="col">
+                    <input type="submit" class="btn btn-outline-dark" value="Submit">
+                  </div>
+              </div>
+            </div>
+        </div>
+      </form> -->
+    </div>
+  </div>
+</div>
+
+<!-- <pre>{{connections | json }}</pre> -->
+
+<!-- Spinner Loading -->
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+
+<!-- Message for error -->
+<div *ngIf="!loading && errorMessage">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="h4 text-danger fw-bold">{{errorMessage}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- creating cards -->
+
+<div *ngIf="!loading && connections.length > 0" class="container mt-3">
+  <div class="row">
+    <div *ngFor="let connection of connections"  class="col-md-6">
+      <div class="card list-group-item-warning shadow-lg my-2" >
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-sm-4">
+              <img [src]="connection.photo" alt="" class="connection-image">
+            </div>
+            <div class="col-sm-7">
+              <ul class="list-group">
+                <li class="list-group-item">Name: <span class="fw-bold">{{connection.name}}</span></li>
+                <li class="list-group-item">Email: <span class="fw-bold">{{connection.email}}</span></li>
+                <li class="list-group-item">Mobile: <span class="fw-bold">{{connection.mobile}}</span></li>
+              </ul>
+            </div>
+
+            <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center">
+              <a class="btn btn-success my-1" routerLink="/connections/edit/{{connection.id}}">
+                <i class="fa fa-edit"></i>
+              </a>
+
+              <a class="btn btn-primary my-1" routerLink="/connections/view/{{connection.id}}">
+                <i class="fas fa-eye"></i>
+              </a>
+
+             <button class="btn btn-danger my-1" (click)="deleteConnection(connection.id)">
+              <i class="fas fa-trash"></i>
+             </button>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

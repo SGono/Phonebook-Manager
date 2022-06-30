@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Titillium+Web:wght@200&display=swap');
+
+body {
+  font-family: 'Merriweather', serif !important;
+  background-color: snow !important;
+}
+
+.connection-image {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.connection-image-big {
+  width: 200px;
+  border-radius: 50%;
+}

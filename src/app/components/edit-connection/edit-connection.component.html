@@ -1,0 +1,57 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <p class="h3 text-warning fw-bold">Edit Connection</p>
+      <p class="fst-italic">Welcome to our site, this application is about adding new connections to your phonebook.
+        This application will make your life easier by creating new connections
+        with just click of a button, you can also edit or update your connections as well as deleting.
+         Take your time and have funny by adding new connections to your phonebook. Please take your time,
+         to expore on this new and awesome application, then let us know what you think. We welcome all new ideas or suggestions from you with pleasure !
+      </p>
+  </div>
+    </div>
+      </div>
+
+      <!-- Edit Connection Form -->
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+      <form (submit)="submitUpdate()">
+        <!--Data binding-->
+        <div class="mb-2">
+          <input [(ngModel)]="connection.name" name="name" [value]="connection.name" class="form-control" placeholder="Name" required="true" type="text">
+        </div>
+        <div class="mb-2">
+          <input [(ngModel)]="connection.photo" name="photo" [value]="connection.photo" class="form-control" placeholder="Photo Url" required="true" type="text">
+        </div>
+        <div class="mb-2">
+          <input [(ngModel)]="connection.email" name="email" [value]="connection.email" class="form-control" placeholder="Email" required="true" type="email">
+        </div>
+        <div class="mb-2">
+          <input [(ngModel)]="connection.mobile" name="mobile" [value]="connection.mobile" class="form-control" placeholder="Mobile" required="true"type="number">
+        </div>
+        <div class="mb-2">
+          <input [(ngModel)]="connection.company" name="company" [value]="connection.company" class="form-control" placeholder="Company" required="true" type="text">
+        </div>
+        <div class="mb-2">
+          <input [(ngModel)]="connection.title" name="title" [value]="connection.title" class="form-control" placeholder="Title" required="true" type="text">
+        </div>
+        <div class="mb-2">
+          <select [(ngModel)]="connection.groupId" name="groupId" [value]="connection.groupId" class="form-control">
+            <option value="">Select a Group</option>
+            <option [value]="group.id" *ngFor="let group of groups">{{group.name}}</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <input class="btn btn-success" type="submit" value="Update">
+          <a class="btn btn-secondary ms-2" routerLink="/">Exit</a>
+        </div>
+      </form>
+      </div>
+      <div class="col-sm-4">
+        <img alt="" class="connection-image" [src]="connection.photo">
+      </div>
+    </div>
+  </div>
+
